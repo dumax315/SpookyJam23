@@ -11,6 +11,7 @@ public partial class Main : Node
 	
 	public void game_over()
 	{
+		GD.Print("whatever");
 		GetNode<Timer>("MobTimer").Stop();
 		GetNode<Timer>("ScoreTimer").Stop();
 		GetNode<HUD>("HUD").ShowGameOver();
@@ -21,6 +22,7 @@ public partial class Main : Node
 
 	public void NewGame()
 	{
+		GD.Print("newGameDebug");
 		_score = 0;
 
 		var player = GetNode<Player>("Player");
