@@ -85,7 +85,5 @@ public partial class Main : Node
 		AddChild(mob);
 	}
 
-
-	
 }
 

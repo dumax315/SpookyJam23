@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://duhae27ild2tx"]
+
+[ext_resource type="Script" path="res://Person.cs" id="1_k8gew"]
+[ext_resource type="Texture2D" uid="uid://dgkppnx0ugfe" path="res://art/PersonWalking.png" id="1_pd7wu"]
+[ext_resource type="Texture2D" uid="uid://cycp26jd5hsjv" path="res://art/PersonRight.png" id="2_358y7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy5a5"]
+atlas = ExtResource("1_pd7wu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8jde"]
+atlas = ExtResource("1_pd7wu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5omo"]
+atlas = ExtResource("1_pd7wu")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yibf6"]
+atlas = ExtResource("1_pd7wu")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrrac"]
+atlas = ExtResource("1_pd7wu")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iesuw"]
+atlas = ExtResource("1_pd7wu")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ul1u"]
+atlas = ExtResource("2_358y7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p40n"]
+atlas = ExtResource("2_358y7")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tsfg2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy5a5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8jde")
+}],
+"loop": true,
+"name": &"walkBack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5omo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yibf6")
+}],
+"loop": true,
+"name": &"walkFoward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrrac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iesuw")
+}],
+"loop": true,
+"name": &"walkLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ul1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p40n")
+}],
+"loop": true,
+"name": &"walkRight",
+"speed": 5.0
+}]
+
+[node name="Person" type="RigidBody2D"]
+script = ExtResource("1_k8gew")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_tsfg2")
+animation = &"walkRight"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="move"]

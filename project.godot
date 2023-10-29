@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SpookyJam23"
-run/main_scene="res://main.tscn"
+run/main_scene="res://maze_evaluation.tscn"
 config/features=PackedStringArray("4.1", "C#", "Mobile")
 config/icon="res://icon.svg"
 
